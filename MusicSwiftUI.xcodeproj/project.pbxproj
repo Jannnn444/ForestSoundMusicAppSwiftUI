@@ -11,7 +11,6 @@
 		54E0CF162B97B6C4005E7726 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E0CF152B97B6C4005E7726 /* ContentView.swift */; };
 		54E0CF182B97B6C6005E7726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54E0CF172B97B6C6005E7726 /* Assets.xcassets */; };
 		54E0CF1B2B97B6C6005E7726 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54E0CF1A2B97B6C6005E7726 /* Preview Assets.xcassets */; };
-		54E0CF222B97B812005E7726 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E0CF212B97B812005E7726 /* Playlist.swift */; };
 		54E0CF242B984CDE005E7726 /* contentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E0CF232B984CDE005E7726 /* contentViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +20,6 @@
 		54E0CF152B97B6C4005E7726 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		54E0CF172B97B6C6005E7726 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54E0CF1A2B97B6C6005E7726 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		54E0CF212B97B812005E7726 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		54E0CF232B984CDE005E7726 /* contentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,10 +55,9 @@
 			children = (
 				54E0CF132B97B6C4005E7726 /* MusicSwiftUIApp.swift */,
 				54E0CF152B97B6C4005E7726 /* ContentView.swift */,
+				54E0CF232B984CDE005E7726 /* contentViewModel.swift */,
 				54E0CF172B97B6C6005E7726 /* Assets.xcassets */,
 				54E0CF192B97B6C6005E7726 /* Preview Content */,
-				54E0CF212B97B812005E7726 /* Playlist.swift */,
-				54E0CF232B984CDE005E7726 /* contentViewModel.swift */,
 			);
 			path = MusicSwiftUI;
 			sourceTree = "<group>";
@@ -146,7 +143,6 @@
 				54E0CF242B984CDE005E7726 /* contentViewModel.swift in Sources */,
 				54E0CF162B97B6C4005E7726 /* ContentView.swift in Sources */,
 				54E0CF142B97B6C4005E7726 /* MusicSwiftUIApp.swift in Sources */,
-				54E0CF222B97B812005E7726 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

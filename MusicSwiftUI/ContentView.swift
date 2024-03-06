@@ -7,49 +7,112 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
+   @ObservedObject var viewModel: ContentViewModel
     
-    @ObservedObject var viewModel: ContentViewModel
+    
+//    @EnvironmentObject var viewModel: ContentViewModel    //important!! to link form our datamodel
+     
     
     var body: some View {
-        
-        VStack {
-            HStack{
-                Image(systemName: "tent")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                    .tint(.cyan)
-                Text("Forest Sound")
-            }
-            
-            Spacer()
-            Text("Artist Name: \(viewModel.playlists.first?.artistName ?? "")")
-            Text("Track Name: \(viewModel.playlists.first?.trackName ?? "")")
-//            Text("Preview URL: \(viewModel.playlists.first?.previewUrl.absoluteString ?? "")")
+        HStack{
+           
+            //arrowshape.backward
             Button(action: {
-                guard let url = viewModel.playlists.first?.previewUrl else {
-                    print("Preview URL is not available")
-                    return
-                }
-                UIApplication.shared.open(url)
+               
+                viewModel.previousArtist()
             }) {
-                Image(systemName: "play.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 32, height: 32)
-                    .tint(.red)
+                Image(systemName: "arrowshape.backward.fill")
+                    .tint(.black)
+                    .frame(width: 30, height: 30, alignment: .center)
+              
             }
-            .padding()
+          
             
+            VStack {
+                VStack{
+                    Image(systemName: "tent")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                        .tint(.cyan)
+                    Text("Forest Sound")
+                        .fontDesign(.serif)
+                }
+                ScrollView {
+                    
+                    VStack {
+                        ForEach(viewModel.playlists, id: \.self) { playlist in
+                            PlaylistRowView(playlist: playlist)
+                        }
+                    }
+//                    .padding()
+                }
+            }
+
+            // arrowshape.right
+            Button(action: {
+                viewModel.nextArtist()
+                       }) {
+                           Image(systemName: "arrowshape.right.fill")
+                               .tint(.black)
+                               .frame(width: 30, height: 30, alignment: .center)
+                       }
+           
         }
-        .padding()
-        Spacer()
+        
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PlaylistRowView: View {
+    
+    let playlist: Playlist
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Artist Name: \(playlist.artistName)")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .fontDesign(.serif)
+                Text("Track Name: \(playlist.trackName)")
+                    .fontDesign(.serif)
+                   
+            }
+            
+            Spacer()
+            
+            Button(action: {
+                UIApplication.shared.open(playlist.previewUrl)
+            }) {
+                Image(systemName: "play.fill")
+                    .resizable()
+                    .tint(.red)
+                    .frame(width: 22, height: 22, alignment: .trailing)
+                    
+            } .padding(.bottom)  //push button red play button upper
+            
+        }
+        .padding()
+    }
+}
+
+struct ContentContainerView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(viewModel: ContentViewModel())
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
